@@ -146,6 +146,6 @@ A proposta se relaciona ao conceito de Tecnologia Cidadã porque utiliza computa
 ## 9. Acesso ao protótipo e demonstração
 
 - **Projeto no Wokwi:** [Leitor de Ambiente](https://wokwi.com/projects/479956180486049793)
-- **Vídeo demonstrativo:** [Video Demonstrativo](https://youtu.be/ggJSjKShN9U)
+- **Vídeo demonstrativo:** [Ver](https://youtu.be/ggJSjKShN9U)
 
 Para visualizar o funcionamento, abra o projeto no Wokwi, inicie a simulação e altere os valores dos sensores ou o estado da entrada que representa a porta. Observe a atualização dos displays, do LED RGB, do alto-falante e do monitor serial.
