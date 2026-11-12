@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 31.5, "left": -204.2, "attrs": {} },
+    {
+      "type": "wokwi-ds18b20",
+      "id": "temp1",
+      "top": 32.98,
+      "left": 161.23,
+      "rotate": 90,
+      "attrs": { "temperature": "21.7" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 147.2,
+      "left": -239.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -132,
+      "left": 11.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw1",
+      "top": 155.2,
+      "left": 154.1,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 160,
+      "left": 207.2,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x27" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": -32,
+      "left": 207,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x26" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd3",
+      "top": -174,
+      "left": 207.2,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x25" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd4",
+      "top": -176,
+      "left": -560.8,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x20" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd5",
+      "top": -32,
+      "left": -560.8,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x21" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd6",
+      "top": 160,
+      "left": -560.8,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x22" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd7",
+      "top": 304,
+      "left": -560.8,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x23" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -188, "left": 20.3, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -91.2,
+      "left": -134.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -91.2,
+      "left": -115.75,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -91.2,
+      "left": -96.55,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "ldr1:GND", "pico:GND.4", "black", [ "h0" ] ],
+    [ "gas1:GND", "pico:GND.2", "black", [ "h57.6", "v18.4" ] ],
+    [ "temp1:GND", "pico:GND.8", "black", [ "h-48", "v-16.05" ] ],
+    [ "gas1:VCC", "ldr1:VCC", "red", [ "h0" ] ],
+    [ "gas1:VCC", "pico:3V3", "red", [ "h48", "v-96.9", "h105.6", "v67.2" ] ],
+    [ "gas1:AOUT", "pico:GP28", "gray", [ "h38.4", "v-57.6", "h124.8", "v76.8" ] ],
+    [ "temp1:VCC", "pico:3V3", "red", [ "h-38.4", "v-16.05" ] ],
+    [ "temp1:VCC", "sw1:1", "red", [ "h-19.2", "v96" ] ],
+    [ "sw1:3", "pico:GND.5", "black", [ "h0" ] ],
+    [ "ldr1:AO", "pico:GP27", "yellow", [ "h28.8", "v-221.5", "h144", "v115.2" ] ],
+    [ "pico:GP22", "temp1:DQ", "orange", [ "h52.8", "v-60.75" ] ],
+    [ "sw1:2", "pico:GP18", "#8f4814", [ "h0" ] ],
+    [ "bz1:1", "pico:GND.1", "black", [ "v0", "h-48", "v86.4" ] ],
+    [ "bz1:2", "pico:GP0", "red", [ "v9.6", "h-48.4" ] ],
+    [ "lcd1:GND", "pico:GND.5", "black", [ "h-124.8", "v-9.6" ] ],
+    [ "lcd1:VCC", "sw1:1", "red", [ "h-19.2", "v-57.5", "h-38.4" ] ],
+    [ "lcd1:SDA", "pico:GP20", "purple", [ "h-124.8", "v-67" ] ],
+    [ "lcd1:SCL", "pico:GP21", "magenta", [ "h-115.2", "v-86.1" ] ],
+    [ "lcd2:GND", "pico:GND.8", "black", [ "h-96", "v28.8" ] ],
+    [ "lcd2:VCC", "temp1:VCC", "red", [ "h-9.6", "v67.3", "h-48" ] ],
+    [ "lcd2:SCL", "lcd1:SCL", "magenta", [ "h-9.6", "v192.3" ] ],
+    [ "lcd2:SDA", "lcd1:SDA", "purple", [ "h-9.6", "v192.2" ] ],
+    [ "lcd2:SDA", "lcd3:SDA", "purple", [ "h-9.6", "v-143.8" ] ],
+    [ "lcd2:SCL", "lcd3:SCL", "magenta", [ "h-9.6", "v-143.7" ] ],
+    [ "lcd3:GND", "lcd2:GND", "black", [ "h-19.2", "v144" ] ],
+    [ "lcd3:VCC", "lcd2:VCC", "red", [ "h-19.2", "v144.1" ] ],
+    [ "lcd5:GND", "lcd4:GND", "black", [ "h-28.8", "v-144" ] ],
+    [ "lcd4:VCC", "lcd5:VCC", "red", [ "h-28.8", "v144" ] ],
+    [ "lcd5:SDA", "lcd4:SDA", "purple", [ "h-19.2", "v-143.8" ] ],
+    [ "lcd5:SCL", "lcd4:SCL", "magenta", [ "h-19.2", "v-143.7" ] ],
+    [ "lcd6:GND", "lcd5:GND", "black", [ "h-28.8", "v-192" ] ],
+    [ "lcd5:VCC", "lcd6:VCC", "red", [ "h-28.8", "v192.1" ] ],
+    [ "lcd6:SDA", "lcd5:SDA", "purple", [ "h-19.2", "v-191.8" ] ],
+    [ "lcd5:SCL", "lcd6:SCL", "magenta", [ "h-19.2", "v192.3" ] ],
+    [ "lcd6:GND", "lcd7:GND", "black", [ "h-28.8", "v144" ] ],
+    [ "lcd6:VCC", "lcd7:VCC", "red", [ "h-28.8", "v144.1" ] ],
+    [ "lcd6:SDA", "lcd7:SDA", "purple", [ "h-19.2", "v144.2" ] ],
+    [ "lcd6:SCL", "lcd7:SCL", "magenta", [ "h-19.2", "v144.3" ] ],
+    [ "lcd7:GND", "pico:GND.4", "black", [ "h-28.8", "v115.2", "h576", "v-278.4" ] ],
+    [ "lcd7:VCC", "pico:3V3", "red", [ "h-28.8", "v115.3", "h672", "v-403.2" ] ],
+    [ "lcd7:SDA", "pico:GP20", "purple", [ "h-28.8", "v125", "h691.2", "v-332.85" ] ],
+    [ "lcd7:SCL", "pico:GP21", "magenta", [ "h-28.8", "v105.9", "h681.6", "v-332.85" ] ],
+    [ "rgb1:R", "r1:1", "red", [ "v0", "h-134.4" ] ],
+    [ "rgb1:B", "r3:1", "blue", [ "v19.2", "h-113.6" ] ],
+    [ "rgb1:G", "r2:1", "green", [ "v9.6", "h-133.1" ] ],
+    [ "r1:2", "pico:GP2", "red", [ "v75.6", "h57.6", "v22.35" ] ],
+    [ "r2:2", "pico:GP3", "green", [ "v75.6", "h38.4", "v31.95" ] ],
+    [ "r3:2", "pico:GP4", "blue", [ "v75.6", "h19.2", "v41.55" ] ],
+    [ "rgb1:COM", "pico:3V3", "red", [ "v-0.4", "h57.7", "v185.55" ] ]
+  ],
+  "dependencies": {}
+}
